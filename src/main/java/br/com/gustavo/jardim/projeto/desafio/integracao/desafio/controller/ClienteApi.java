@@ -50,9 +50,9 @@ public class ClienteApi {
 
 	@ApiOperation(value = "salva cliente")
 	@PostMapping(path="/salva/cliente", consumes= "application/json")
-	public ResponseEntity<ClienteEntity> salvaCliente(@RequestBody @Valid ClienteEntity cliente) {
-
-		return ResponseEntity.ok(service.salvaCliente(cliente));
+	public ResponseEntity<Void> salvaCliente(@RequestBody @Valid ClienteEntity cliente) {
+		service.salvaCliente(cliente);
+		return ResponseEntity.ok().build();
 	}
 
 }
